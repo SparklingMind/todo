@@ -13,8 +13,13 @@
   src: url(./font/KBO\ Dia\ Gothic_light.ttf) format("truetype");
 }
 
-.App {
+/* .App {
   width: 1920px;
   height: auto;
   margin: 0 300px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
 }

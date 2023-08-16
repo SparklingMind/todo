@@ -1,13 +1,10 @@
 import "./App.css";
-import "./CalendarFunc";
-import CalendarFunc from "./CalendarFunc";
-import Header from "./Header";
+import DiaryView from "./components/DiaryView";
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <CalendarFunc></CalendarFunc>
+      <DiaryView></DiaryView>
     </div>
   );
 }
