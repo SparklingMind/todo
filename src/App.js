@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CategoryList from './CategoryList';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+  width: 80%;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const Title = styled.h1`
+  text-align: left;
+`;
 
 function App() {
+  const [categories, setCategories] = useState([
+    { name: 'Work', todos: ['Meeting at 10am', 'Finish report'] },
+    { name: 'Personal', todos: ['Grocery shopping', 'Read a book'] },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Title>오늘의 코딩</Title>
+      <CategoryList categories={categories} setCategories={setCategories} />
+    </AppContainer>
   );
 }
 
