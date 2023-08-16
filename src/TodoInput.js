@@ -1,5 +1,5 @@
-import React, { useState } from 'react';  // React와 useState 훅 임포트
-import styled from 'styled-components';  // styled-components 라이브러리 임포트
+import React, { useState } from 'react';  
+import styled from 'styled-components';  
 
 // 입력 필드와 저장 버튼을 포함하는 컨테이너의 스타일 설정
 const InputContainer = styled.div`
@@ -71,7 +71,7 @@ function TodoInput({ category, categories, setCategories, setInputVisible }) {
         onChange={e => setNewTodo(e.target.value)} // 사용자 입력시 newTodo 상태 업데이트
         placeholder="새로운 할 일을 입력하세요"
       />
-      <SaveButton onClick={handleSaveClick}>저장</SaveButton> // 클릭 시 handleSaveClick 실행
+      <SaveButton onClick={handleSaveClick}>저장</SaveButton>
     </InputContainer>
   );
 }

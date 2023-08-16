@@ -1,7 +1,7 @@
-import React, { useState } from 'react'; // React와 useState 훅 임포트
-import CategoryList from './CategoryList'; // 카테고리 리스트 컴포넌트 임포트
-import styled from 'styled-components'; // styled-components 라이브러리 임포트
-import './App.css'; // App 컴포넌트의 전역 스타일링을 위한 CSS 임포트
+import React, { useState } from 'react'; 
+import CategoryList from './CategoryList';
+import styled from 'styled-components'; 
+import './App.css'; 
 
 // App의 전체적인 스타일링 설정 (컨테이너)
 const AppContainer = styled.div`
@@ -53,5 +53,5 @@ function App() {
   );
 }
 
-// App 컴포넌트를 외부에서 사용할 수 있도록 export
+
 export default App;
