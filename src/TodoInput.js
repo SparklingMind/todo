@@ -33,7 +33,14 @@ function TodoInput({ category, categories, setCategories, setInputVisible }) {
     setCategories(prevCategories => {
       return prevCategories.map(cat => {
         if (cat.name === category.name) {
-          const updatedTodos = [...cat.todos, { text: newTodo, completed: false }];
+          const updatedTodos = [
+            ...cat.todos, 
+            { 
+              text: newTodo, 
+              completed: false, 
+              originalIndex: cat.todos.length // 현재 todos의 길이를 originalIndex로 지정
+            }
+          ];
           return { ...cat, todos: updatedTodos };
         } else {
           return cat;

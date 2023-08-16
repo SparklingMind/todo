@@ -20,6 +20,7 @@ const CategoryTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-size: 1.5em;
+  font-family: 'KBO-Dia-Gothic_medium';
 `;
 
 const Button = styled.button`
@@ -32,12 +33,18 @@ const Button = styled.button`
   }
 `;
 
+const TodoContent = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const TodoItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
   text-decoration: ${props => (props.completed ? 'line-through' : 'none')};
+  font-family: 'KBO-Dia-Gothic_light';
 `;
 
 function CategoryItem({ category, categories, setCategories }) {
@@ -49,11 +56,20 @@ function CategoryItem({ category, categories, setCategories }) {
     setCategories(prevCategories => {
       return prevCategories.map(cat => {
         if (cat.name === category.name) {
-          const updatedTodos = [...cat.todos];
-          updatedTodos[index].completed = !updatedTodos[index].completed;
-
-          updatedTodos.sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? 1 : -1));
-          
+          const updatedTodos = cat.todos.map((todo, todoIndex) => {
+            if (todoIndex === index) {
+              return { ...todo, completed: !todo.completed };
+            }
+            return todo;
+          });
+  
+          updatedTodos.sort((a, b) => {
+            if (a.completed !== b.completed) {
+              return a.completed ? 1 : -1;
+            }
+            return a.originalIndex - b.originalIndex; // 원래 순서대로 정렬
+          });
+  
           return { ...cat, todos: updatedTodos };
         } else {
           return cat;
@@ -68,6 +84,7 @@ function CategoryItem({ category, categories, setCategories }) {
   };
 
   const handleEdit = (index) => {
+    setEditingIndex(null);
     setCategories(prevCategories => {
       return prevCategories.map(cat => {
         if (cat.name === category.name) {
@@ -79,7 +96,6 @@ function CategoryItem({ category, categories, setCategories }) {
         }
       });
     });
-    setEditingIndex(null);
     setEditingText('');
   };
 
@@ -111,24 +127,25 @@ function CategoryItem({ category, categories, setCategories }) {
           setInputVisible={setInputVisible}
         />
       )}
-      <ul>
+      <ul style={{ paddingLeft: '20px' }}>
         {category.todos.map((todo, index) => (
           <TodoItem key={index} completed={todo.completed}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleCheck(index)}
-            />
-            {editingIndex === index ? (
+            <TodoContent>
               <input
-                value={editingText}
-                onChange={e => setEditingText(e.target.value)}
-                onBlur={() => handleEdit(index)}
-                onKeyPress={(e) => { if (e.key === 'Enter') handleEdit(index); }}
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => handleCheck(index)}
+                style={{ marginRight: '20px' }}
               />
-            ) : (
-              todo.text
-            )}
+              {editingIndex === index ? (
+                <input
+                  value={editingText}
+                  onChange={e => setEditingText(e.target.value)}
+                />
+              ) : (
+                todo.text
+              )}
+            </TodoContent>
             <span>
               {editingIndex === index ? (
                 <Button onClick={() => handleEdit(index)}>저장</Button>

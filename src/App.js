@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CategoryList from './CategoryList';
 import styled from 'styled-components';
+import './App.css';
 
 const AppContainer = styled.div`
   width: 80%;
@@ -13,6 +14,7 @@ const AppContainer = styled.div`
 
 const Title = styled.h1`
   text-align: left;
+  font-family: 'KBO-Dia-Gothic_bold';
 `;
 
 function App() {
