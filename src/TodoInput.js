@@ -1,61 +1,59 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const TodoInputContainer = styled.div`
+const InputContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 `;
 
-const TodoInputField = styled.input`
-  padding: 5px 10px;
-  font-size: 1em;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  flex-grow: 1;
-  margin-right: 10px;
+const Input = styled.input`
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 `;
 
 const SaveButton = styled.button`
-  padding: 6px 12px;
-  background-color: #555;
+  background-color: transparent;
   border: none;
-  color: #fff;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  
+  color: #888;
+  margin-left: 10px;
   &:hover {
-    background-color: #444;
+    color: #555;
   }
 `;
 
-function TodoInput({ category, setCategories }) {
-  const [inputValue, setInputValue] = useState('');
+function TodoInput({ category, categories, setCategories, setInputVisible }) {
+  const [newTodo, setNewTodo] = useState('');
 
-  const handleAdd = () => {
-    if (inputValue.trim() !== '') {
-      setCategories(prevCategories => {
-        return prevCategories.map(cat => {
-          if (cat.name === category.name) {
-            return { ...cat, todos: [...cat.todos, inputValue] };
-          } else {
-            return cat;
-          }
-        });
+  const handleSaveClick = () => {
+    setCategories(prevCategories => {
+      return prevCategories.map(cat => {
+        if (cat.name === category.name) {
+          const updatedTodos = [...cat.todos, { text: newTodo, completed: false }];
+          return { ...cat, todos: updatedTodos };
+        } else {
+          return cat;
+        }
       });
-      setInputValue('');
-    }
+    });
+    setNewTodo('');
+    setInputVisible(false);
   };
 
   return (
-    <TodoInputContainer>
-      <TodoInputField
+    <InputContainer>
+      <Input
         type="text"
-        value={inputValue}
-        onChange={e => setInputValue(e.target.value)}
+        value={newTodo}
+        onChange={e => setNewTodo(e.target.value)}
+        placeholder="새로운 할 일을 입력하세요"
       />
-      <SaveButton onClick={handleAdd}>저장</SaveButton>
-    </TodoInputContainer>
+      <SaveButton onClick={handleSaveClick}>저장</SaveButton>
+    </InputContainer>
   );
 }
 

@@ -17,13 +17,28 @@ const Title = styled.h1`
 
 function App() {
   const [categories, setCategories] = useState([
-    { name: 'Work', todos: ['Meeting at 10am', 'Finish report'] },
-    { name: 'Personal', todos: ['Grocery shopping', 'Read a book'] },
+    {
+      name: '자바스크립트',
+      todos: [
+        { text: '프로미스 이해하기', completed: false },
+        { text: '비동기 처리 방법 배우기', completed: false },
+        { text: 'ES6+ 문법 익히기', completed: false }
+      ]
+    },
+    {
+      name: '리액트',
+      todos: [
+        { text: 'Hooks 사용법 학습하기', completed: false },
+        { text: '리액트 라우터 도입하기', completed: false },
+        { text: '컴포넌트 최적화 방법 알아보기', completed: false }
+      ]
+    }
   ]);
+  
 
   return (
     <AppContainer>
-      <Title>오늘의 코딩</Title>
+      <Title>오늘도 코딩</Title>
       <CategoryList categories={categories} setCategories={setCategories} />
     </AppContainer>
   );

@@ -8,6 +8,7 @@ function CategoryList({ categories, setCategories }) {
         <CategoryItem
           key={index}
           category={category}
+          categories={categories}
           setCategories={setCategories}
         />
       ))}
