@@ -31,7 +31,6 @@ function DiaryWrite() {
         initialEditType="wysiwyg"
         ref={contentRef}
       ></Editor>
-
       <div className="diary-write-btns">
         <button type="button">취소</button>
         <button type="submit" onClick={handleSubmitBtn}>

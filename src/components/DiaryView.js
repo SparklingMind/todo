@@ -8,6 +8,7 @@ import { Viewer } from "@toast-ui/react-editor";
 
 function DiaryView() {
   const editorHtml = `<h1><strong>Hook</strong></h1><p><br></p>`;
+
   return (
     <section>
       <h2>제목</h2>
