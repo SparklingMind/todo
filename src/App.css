@@ -1,27 +1,21 @@
 @font-face {
-  font-family: 'KBO-Dia-Gothic_bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
+  font-family: "fontBold";
+  src: url("./font/KBO\ Dia\ Gothic_bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'KBO-Dia-Gothic_medium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2/KBO-Dia-Gothic_medium.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
+  font-family: "fontMedium";
+  src: url("./font/KBO\ Dia\ Gothic_medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'KBO-Dia-Gothic_light';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2/KBO-Dia-Gothic_light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
+  font-family: "fontLight";
+  src: url(./font/KBO\ Dia\ Gothic_light.ttf) format("truetype");
 }
-
 
 .App {
-  width: 1920px;
+  width: 100%;
   height: auto;
-  margin: 0 300px;
+  margin: 0 100px;
+  font-family: "fontLight";
 }
