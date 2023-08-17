@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 const UpperContainer = styled.div`
     margin-top: 10vh;
     display: flex;
@@ -62,9 +63,9 @@ width: 100%;
 
 const ListWrapper = styled.div`
 display: flex;
-height: 300px;
+height: 250px;
     ul {
-        margin-top: 20px;
+        margin-top: 30px;
         line-height: 3;
         display: flex;
         flex-direction: column;
@@ -74,26 +75,17 @@ height: 300px;
     }
 `
 
-const NavIcons = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    
-    ul {
-        display: flex;
-        margin-top: 10px;
-        list-style: none;
-        font-weight: 600;
-    }
-
-    img {
-        margin-left: 50px;
-        margin-right: 50px;
-        width: 40px;
-        height: 40px;
-    }
+const UnderLine = styled.div`
+    border-bottom: 1px solid #D5D5D5;
+    height: 10px;
+    width: 48vw;
 `
 
+const SplitLine = styled.div`
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid gray;
+`
 const MyPage = () => {
     return (
         <div>
@@ -112,20 +104,17 @@ const MyPage = () => {
                     <ListWrapper>
                         <ul>
                             <li>회원정보</li>
+                            <UnderLine />
                             <li>공지사항</li>
+                            <UnderLine />
                             <li>버전</li>
+                            <UnderLine />
                             <li>설정</li>
                         </ul>
                     </ListWrapper>
-                <LowerLine></LowerLine>
-                <NavIcons>
-                    <ul>
-                        <li><img src="/home-icon.png" /></li>
-                        <li><img src="search-icon.png" /></li>
-                        <li><img src="mypage-icon.png" /></li>
-                    </ul>
-                </NavIcons>
+                    <SplitLine/>
             </MainContainer>
+
         </div>
     );
 };

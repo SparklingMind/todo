@@ -1,7 +1,20 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "fontBold";
+  src: url("./font/KBO\ Dia\ Gothic_bold.ttf") format("truetype");
 }
 
-body {
-  font-family: 'YourFontName', sans-serif;
+@font-face {
+  font-family: "fontMedium";
+  src: url("./font/KBO\ Dia\ Gothic_medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "fontLight";
+  src: url(./font/KBO\ Dia\ Gothic_light.ttf) format("truetype");
+}
+
+.App {
+  width: 100%;
+  height: auto;
+  font-family: "fontLight";
 }

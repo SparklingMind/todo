@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
@@ -18,9 +19,10 @@ const UpperContainer = styled.div`
     h1 {
         font-size: 45px;
         letter-spacing: 0px;
+        cursor: pointer;
         &:hover {
             color: gray;
-            transition: transform 0.3s ease;
+            transition: color 0.3s ease;
         }
     }    
     
@@ -36,15 +38,20 @@ const LowerContainer = styled.div`
 `
 const ButtonContainer = styled.div`
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
 `
 
-
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const handleHome= () => {
+    navigate("/")
+}
     return(
         <div>
             <Logo><img src="/logo.jpg" /></Logo>
             <UpperContainer>
-                <h1><a href="LoginPage">오늘도 코딩</a></h1>
+                <h1 onClick={handleHome}>오늘도 코딩</h1>
             </UpperContainer>
             <LowerContainer>
             <FloatingLabel controlId="floatingInput" label="아이디" className="mb-3">

@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,6 +19,11 @@ margin: 20px 0 40px;
     h1 {
         font-size: 45px;
         letter-spacing: 0px;
+        cursor: pointer;
+        &:hover {
+            color: gray;
+            transition: color 0.3s ease;
+        }
     }    
     
     h1 > a {
@@ -40,18 +46,28 @@ font-weight: 600;
 `
 
 const HomePage = () => {
+    const navigate = useNavigate(); // useNavigate 사용
+
+    const handleLogin = () => {
+        navigate("/login"); // 페이지 이동
+    }
+    const handleSignUp = () => {
+        navigate("/signup")
+    }
+
     return (
         <div>
             <Logo><img src="/logo.jpg" /></Logo>
             <UpperContainer>
-                <h1><a href="LoginPage">오늘도 코딩</a></h1>
+                <h1>오늘도 코딩</h1>
             </UpperContainer>
              <LowerContainer> 
-             <Button variant="secondary" className="loginBtn">로그인</Button>{' '}
-             <Button variant="secondary" className="signUpBtn">회원가입</Button>{' '}
+             <Button variant="secondary" className="loginBtn" onClick={handleLogin}>로그인</Button>{' '}
+             <Button variant="secondary" className="signUpBtn" onClick={handleSignUp}>회원가입</Button>{' '}
              </LowerContainer>
         </div>
     )
 }
+
 
 export default HomePage
