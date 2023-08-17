@@ -38,20 +38,22 @@ const DiaryWriteBtn = styled.button`
 const DiaryList = styled.ul`
   list-style: none;
   padding: 0;
-  margin-top: 30px;
+  margin-top: 50px;
+  overflow: hidden;
 `;
 
 const DiaryListItem = styled.li`
   border: 1px solid #333;
   border-radius: 15px;
   height: 150px;
-  padding: 30px 20px;
+  padding: 20px;
   box-sizing: border-box;
   margin-bottom: 20px;
 `;
 
-const DiaryListTitle = styled.h3`
-  margin-bottom: 20px;
+const DiaryListTitle = styled.h4`
+  font-family: "fontMedium";
+  margin-bottom: 10px;
 `;
 
 export default Diary;
