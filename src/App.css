@@ -14,8 +14,8 @@
 }
 
 .App {
-  width: 1920px;
+  width: 100%;
   height: auto;
-  margin: 0 300px;
+  margin: 0 100px;
   font-family: "fontLight";
 }
