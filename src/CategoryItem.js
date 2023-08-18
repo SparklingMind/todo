@@ -22,7 +22,7 @@ const CategoryTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-size: 1.5em;
-  font-family: 'KBO-Dia-Gothic_medium'
+  font-family: 'fontMedium'
   
 `;
 
@@ -47,10 +47,11 @@ const TodoItem = styled.li`
   align-items: center;
   margin-bottom: 5px;
   text-decoration: ${props => (props.completed ? 'line-through' : 'none')};
-  font-family: 'KBO-Dia-Gothic_medium';
+  font-family: 'fontMedium';
   letter-spacing: 1.1px ;
   
 `;
+
 
 // CategoryItem 컴포넌트 정의
 function CategoryItem({ category, categories, setCategories }) {
