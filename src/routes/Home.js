@@ -5,7 +5,7 @@ import DiaryWrite from "../components/DiaryWrite";
 
 function Home() {
   return (
-    <div className="App">
+    <div>
       <Header></Header>
       <CalendarFunc></CalendarFunc>
       <DiaryWrite></DiaryWrite>

@@ -12,14 +12,17 @@ import Search from "./routes/Search";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/mypage" element={<MyPage />} />
-      </Routes>
-      <Nav></Nav>
+      <div className="App">
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/mypage" element={<MyPage />} />
+        </Routes>
+        <Nav></Nav>
+      </div>
     </BrowserRouter>
   );
 }
