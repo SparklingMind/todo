@@ -23,7 +23,6 @@ const CategoryTitle = styled.h2`
   padding: 0;
   font-size: 1.5em;
   font-family: 'fontMedium'
-  
 `;
 
 const Button = styled.button`
@@ -48,8 +47,6 @@ const TodoItem = styled.li`
   margin-bottom: 5px;
   text-decoration: ${props => (props.completed ? 'line-through' : 'none')};
   font-family: 'fontMedium';
-  letter-spacing: 1.1px ;
-  
 `;
 
 
