@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./routes/Home";
@@ -7,26 +8,22 @@ import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import MyPage from "./components/MyPage";
 import Search from "./routes/Search";
-import React, { useState } from 'react'; 
-
 
 function App() {
-  // App 컴포넌트의 반환 부분
   return (
     <BrowserRouter>
       <div className="App">
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/mypage" element={<MyPage />} />
-          </Routes>
-          <Nav></Nav>
-        </div>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/mypage" element={<MyPage />} />
+        </Routes>
+        <Nav></Nav>
+      </div>
     </BrowserRouter>
-
   );
 }
 
