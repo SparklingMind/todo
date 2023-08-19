@@ -22,11 +22,15 @@ const CategoryTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-size: 1.5em;
-  font-family: 'fontMedium'
+  font-family: 'fontMedium';
+  font-weight: 600;
 `;
 
 const Button = styled.button`
   background-color: transparent;
+  font-faminly: 'fontLight';
+  margin-left: 5px;
+  font-size: 10pt;
   border: none;
   cursor: pointer;
   color: #888;

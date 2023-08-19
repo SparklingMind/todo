@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { ModalOverlayStyles, ModalContentStyles } from "./CategoryModalStyles";
 
-
-
-
 function CategoryModal({ categories, setCategories, onClose }) {
   // 카테고리 추가를 위한 상태
   const [newCategory, setNewCategory] = useState(""); // 새 카테고리 이름 입력을 위한 상태
@@ -47,8 +44,8 @@ function CategoryModal({ categories, setCategories, onClose }) {
   }
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
+    <ModalOverlayStyles>
+      <ModalContentStyles>
         {/* 각 카테고리에 대하여 */}
         {/* 카테고리 추가 부분 */}
         <div>
@@ -75,24 +72,26 @@ function CategoryModal({ categories, setCategories, onClose }) {
               <>
                 {/* 카테고리 이름 표시 */}
                 <span>{category.name}</span>
-                {/* 해당 카테고리를 편집 모드로 변경하는 버튼 */}
-                <button onClick={() => handleEdit(category)}>편집</button>
-                {/* 해당 카테고리를 삭제하는 버튼 */}
-                <button onClick={() => handleDelete(category)}>삭제</button>
-                {/* 카테고리 대표색을 선택하는 컬러 피커
+                <div className="button-group">
+                  {/* 해당 카테고리를 편집 모드로 변경하는 버튼 */}
+                  <button onClick={() => handleEdit(category)}>편집</button>
+                  {/* 해당 카테고리를 삭제하는 버튼 */}
+                  <button onClick={() => handleDelete(category)}>삭제</button>
+                  {/* 카테고리 대표색을 선택하는 컬러 피커
                       <input 
                         type="color" 
                         value={category.color || '#FFFFFF'}
                         onChange={(e) => handleColorChange(e, category)}
                       /> */}
+                </div>
               </>
             )}
           </div>
         ))}
         {/* 모달을 닫는 버튼 */}
         <button onClick={onClose}>닫기</button>
-      </div>
-    </div>
+      </ModalContentStyles>
+    </ModalOverlayStyles>
   );
 }
 
