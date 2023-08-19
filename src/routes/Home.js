@@ -1,14 +1,14 @@
 import React from "react";
 import CalendarFunc from "../components/CalendarFunc";
 import Header from "../components/Header.js";
-import DiaryWrite from "../components/DiaryWrite";
+import DiaryHome from "../components/DiaryHome";
 
 function Home() {
   return (
     <div>
       <Header></Header>
       <CalendarFunc></CalendarFunc>
-      <DiaryWrite></DiaryWrite>
+      <DiaryHome></DiaryHome>
     </div>
   );
 }
