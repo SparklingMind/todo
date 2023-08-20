@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 const UpperContainer = styled.div`
     margin-top: 10vh;
     display: flex;

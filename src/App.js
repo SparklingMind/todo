@@ -1,12 +1,11 @@
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Nav from "./Nav"
 
 import "./App.css";
-import HomePage from './components/HomePage';
-import LoginPage from './components/LoginPage';
-import SignUpPage from './components/SignUpPage';
-import MyPage from './components/MyPage';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+import MyPage from './pages/MyPage';
 
 
 

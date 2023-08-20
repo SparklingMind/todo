@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import LoginButton from "../components/LoginButton";
 
 const Logo = styled.div`
     display: flex;
@@ -66,38 +65,6 @@ const LoginPage = () => {
             </ButtonContainer>
         </div>
     )
-}
-
-
-function LoginButton() {
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    function simulateNetworkRequest() {
-      return new Promise((resolve) => setTimeout(resolve, 2000));
-    }
-
-    if (isLoading) {
-      simulateNetworkRequest().then(() => {
-        setLoading(false);
-      });
-    }
-  }, [isLoading]);
-
-  const handleClick = () => setLoading(true);
-
-  return (
-    <Button
-      variant="primary"
-      disabled={isLoading}
-      onClick={!isLoading ? handleClick : null}
-      style={{
-        padding: " 10px 50px"
-      }}
-    >
-      로그인
-    </Button>
-  );
 }
 
 export default LoginPage

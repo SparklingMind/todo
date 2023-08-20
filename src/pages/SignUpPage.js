@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import SignUpButton from "../components/SignUpButton";
 
 const UpperContainer = styled.div`
 display: flex;
@@ -156,46 +154,12 @@ const SignUpPage = () => {
                     }
                 </Form.Group>
                 <ButtonContainer>
-                 <LoginButton />
+                 <SignUpButton />
                  </ButtonContainer>
             </Form>
         </MainContainer>
     </div>
     )
 }
-
-
-function LoginButton() {
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    function simulateNetworkRequest() {
-      return new Promise((resolve) => setTimeout(resolve, 2000));
-    }
-
-    if (isLoading) {
-      simulateNetworkRequest().then(() => {
-        setLoading(false);
-      });
-    }
-  }, [isLoading]);
-
-  const handleClick = () => setLoading(true);
-
-  return (
-    <Button
-      variant="primary"
-      disabled={isLoading}
-      onClick={!isLoading ? handleClick : null}
-      style={{
-        marginTop: "20px",
-        padding: "10px 50px"
-      }}
-    >
-      가입하기
-    </Button>
-  );
-}
-
 
 export default SignUpPage

@@ -62,8 +62,8 @@ const HomePage = () => {
                 <h1>오늘도 코딩</h1>
             </UpperContainer>
              <LowerContainer> 
-             <Button variant="secondary" className="loginBtn" onClick={handleLogin}>로그인</Button>{' '}
-             <Button variant="secondary" className="signUpBtn" onClick={handleSignUp}>회원가입</Button>{' '}
+                <Button variant="secondary" className="loginBtn" onClick={handleLogin}>로그인</Button>{' '}
+                <Button variant="secondary" className="signUpBtn" onClick={handleSignUp}>회원가입</Button>{' '}
              </LowerContainer>
         </div>
     )
