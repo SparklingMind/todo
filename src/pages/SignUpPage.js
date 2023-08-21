@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
+import { Button } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import SignUpButton from "../components/SignUpButton";
+import DuplicateIdModal from "../components/DuplicateIdModal"
+import SignUpCompleteModal from "../components/SignUpCompleteModal";
 
 const UpperContainer = styled.div`
 display: flex;
@@ -47,9 +50,6 @@ const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    .idInput {
-        width: 70%;
-    }
 
     .idLabel, .pwdLabel, .pwdConfirmLabel, .emailLabel {
         display: flex;
@@ -59,6 +59,12 @@ const MainContainer = styled.div`
         font-weight: 600;
         color: gray;
     } 
+    
+    #userIdInput {
+      display: flex;
+      width: 75%;
+      margin-right: 10px;
+    }
 
     .customInput::placeholder {
         font-size: 12px;
@@ -73,7 +79,12 @@ const MainContainer = styled.div`
       max-width: 100% !important;
     }
 `
-
+const IdContainer = styled.div`
+display: flex;
+  #customButton {
+    font-weight:500
+  }
+`
 
 const ButtonContainer = styled.div`
   margin-top: 20px;
@@ -100,7 +111,8 @@ const SignUpPage = () => {
   const [confirmPwd, setConfirmPwd] = useState("")
   const [email, setEmail] = useState('');
   const [isEmailValid, setEmailValid] = useState(true);
-
+  const [idCheckModal, setidCheckModal] = useState(false);
+  const [signUpModal, setsignUpModal] = useState(false);
 
   const handlePassWord = (event) => {
     setPwd(event.target.value)
@@ -112,12 +124,13 @@ const SignUpPage = () => {
 
   const handleEmailChange = (event) => {
     const inputEmail = event.target.value;
-       setEmail(inputEmail);
+    setEmail(inputEmail);
 
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-       setEmailValid(emailPattern.test(inputEmail));
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    setEmailValid(emailPattern.test(inputEmail));
   };
 
+ 
     return (
     <div>
         <UpperContainer>
@@ -131,11 +144,17 @@ const SignUpPage = () => {
             <Form className="form">
                 <Form.Group className="idInput">
                     <Form.Label className="idLabel">아이디</Form.Label>
-                    <Form.Control className="customInput" type="text" placeholder="아이디" />
+                    <IdContainer>
+                        <Form.Control id="userIdInput"className="customInput" type="text" placeholder="아이디" />
+                        <Button id="idCheckButton"variant="primary" onClick={() => setidCheckModal(true)}>
+                          중복 확인
+                        </Button>
+                      </IdContainer>
                 </Form.Group>
                 <Form.Group className="pwdInput">
                     <Form.Label className="pwdLabel">비밀번호</Form.Label>
-                    <Form.Control className="customInput" type="password" placeholder="비밀번호" />
+                    <Form.Control className="customInput" type="password" placeholder="비밀번호" 
+                    onChange={handlePassWord}/>
                 </Form.Group>
                 <Form.Group className="pwdInput">
                     <Form.Label className="pwdConfirmLabel">비밀번호 확인</Form.Label>
@@ -154,10 +173,12 @@ const SignUpPage = () => {
                     }
                 </Form.Group>
                 <ButtonContainer>
-                 <SignUpButton />
-                 </ButtonContainer>
+                <Button id="SignUpButton"variant="primary" onClick={() => setsignUpModal(true)}>가입하기</Button>
+               </ButtonContainer>
             </Form>
         </MainContainer>
+          <DuplicateIdModal show={idCheckModal} onHide={() => setidCheckModal(false)}/>
+          <SignUpCompleteModal show={signUpModal} onHide={() => setsignUpModal(false)}/>
     </div>
     )
 }

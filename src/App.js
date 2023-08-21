@@ -8,7 +8,6 @@ import SignUpPage from './pages/SignUpPage';
 import MyPage from './pages/MyPage';
 
 
-
 function App() {
   return (
     <div className="App">
@@ -17,6 +16,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/mypage" element={<MyPage />} />
           </Routes>
         </BrowserRouter>
     </div>

@@ -46,15 +46,14 @@ font-weight: 600;
 `
 
 const HomePage = () => {
-    const navigate = useNavigate(); // useNavigate 사용
+    const navigate = useNavigate(); 
 
     const handleLogin = () => {
-        navigate("/login"); // 페이지 이동
+        navigate("/login"); 
     }
     const handleSignUp = () => {
         navigate("/signup")
     }
-
     return (
         <div>
             <Logo><img src="/logo.jpg" /></Logo>
