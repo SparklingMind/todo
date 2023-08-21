@@ -26,30 +26,33 @@ const MainContainer = styled.div`
 `;
 
 const UpperLine = styled.div`
-  disply: flex;
-  border: 1px solid black;
-  height: 1px;
+  display: flex;
   width: 100%;
+  margin-top: 30px;
+  height: 1px;
+  background-color: black;
+  
 `;
 
 
 const ListWrapper = styled.div`
   display: flex;
-  height: 250px;
+  height: 230px;
   ul {
     margin-top: 30px;
-    line-height: 3;
+    line-height: 3.5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     list-style: none;
     text-align: left;
+    padding: 0;
+    margin: 0 auto;
   }
 `;
 
 const UnderLine = styled.div`
   border-bottom: 1px solid #d5d5d5;
-  height: 10px;
   width: 48vw;
 `;
 
