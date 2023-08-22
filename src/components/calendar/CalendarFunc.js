@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import moment from "moment";
@@ -8,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BiMehBlank } from "react-icons/bi";
 
 function CalendarFunc() {
+  const API = "/api/day/64de04bd682cc82a352ad9e5";
   const [value, onChange] = useState(new Date());
   const activeDate = moment(value).format("YYYYMMDD"); // 클릭한 날짜 (년-월-일))
   const todayDate = moment().format("YYYYMMDD"); //오늘 날짜
@@ -30,17 +32,26 @@ function CalendarFunc() {
     setClickedDate(clickedDate);
   };
   // 클라이언트에서 선택한 날짜와 이모지를 서버로 전송
-  const sendDataToServer = (clickedDate, selectedEmoji) => {
+  const sendDataToServer = async (clickedDate, selectedEmoji) => {
     if (clickedDate && selectedEmoji) {
-      const dataToSend = {
-        date: clickedDate,
-        emoji: selectedEmoji,
-      };
-      setDataToSave(dataToSend);
+      // POST 요청 전송
+      try {
+        const response = await axios.patch(
+          "/api/day/64de04bd682cc82a352ad9e5",
+          {
+            data: {
+              date: clickedDate,
+              emoji: selectedEmoji,
+            },
+          }
+        );
+        setDataToSave(response.data);
+        console.log(dataToSave); //응답 데이터를 설정
+      } catch (error) {
+        console.error(error);
+      }
     }
-    return dataToSave;
   };
-
   //각 날짜별로 이모지 추가
   const addEmoji = ({ date }) => {
     const EmojiDateAdded = []; //추가된 이모지 날짜
