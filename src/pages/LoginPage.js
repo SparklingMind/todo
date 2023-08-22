@@ -1,8 +1,11 @@
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import LoginButton from "../components/LoginButton";
+import { Button } from "react-bootstrap";
+import LoginErrorModal from "../components/LoginErrorModal";
+import axios from "axios";
 
 const Logo = styled.div`
     display: flex;
@@ -46,6 +49,32 @@ const LoginPage = () => {
   const handleHome= () => {
     navigate("/")
 }
+ 
+const [id, setId] = useState("")
+const [password, setPassword] = useState("")
+const [errorModal, setErrorModal] = useState(false)
+
+const handleLogin = () => {
+
+    const url = "http://34.64.151.119/api/auth/login"
+    const requestData = {
+        id: id,
+        password: password
+    }
+    
+    axios.post(url, requestData)
+    .then((response) => {
+        setId("")
+        setPassword("")
+        setErrorModal(false)
+        console.log("로그인 성공:", response.data)
+    })
+    .catch((error) => {
+        setErrorModal(true)
+    })
+  }
+
+
     return(
         <div>
             <Logo><img src="/logo.jpg" /></Logo>
@@ -61,8 +90,9 @@ const LoginPage = () => {
             </FloatingLabel>
             </LowerContainer>
             <ButtonContainer>
-                <LoginButton />
+                <Button id="loginButton"variant="primary" onClick={handleLogin}>로그인</Button>
             </ButtonContainer>
+            <LoginErrorModal show={errorModal} onHide={() => setErrorModal(false)}/>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function SignUpCompleteModal(props) {
+function IdDuplicatedModal(props) {
   return (
     <Modal
       style={{
@@ -14,20 +14,15 @@ function SignUpCompleteModal(props) {
       centered
     >
       <Modal.Header closeButton>
-      <img src="check.png" style={{
-            width:"30px",
-            marginRight: "10px"
-        }} />
         <Modal.Title id="contained-modal-title-vcenter">
-          회원가입 완료
+          아이디 중복
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-
         <p style={{
-            margin:"10px 10px"
+            margin:"10px auto"
         }}>
-          회원가입이 완료되었습니다.
+          이미 사용중인 아이디입니다.
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -37,5 +32,6 @@ function SignUpCompleteModal(props) {
   );
 }
 
-export default SignUpCompleteModal
+export default IdDuplicatedModal
+
 

@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom'; // Import ReactDOM
-
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function DuplicateIdModal(props) {
+function IdCheckedModal(props) {
   return (
     <Modal
       style={{
@@ -17,14 +15,14 @@ function DuplicateIdModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          아이디 중복
+          오늘도 코딩
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p style={{
             margin:"10px auto"
         }}>
-          이미 사용중인 아이디입니다.
+          사용 가능한 아이디입니다.
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -34,6 +32,6 @@ function DuplicateIdModal(props) {
   );
 }
 
-export default DuplicateIdModal
+export default IdCheckedModal
 
 
