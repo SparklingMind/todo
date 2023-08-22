@@ -37,11 +37,18 @@ function CalendarFunc() {
       // POST 요청 전송
       try {
         const response = await axios.patch(
-          "/api/day/64de04bd682cc82a352ad9e5",
+          "http://34.64.151.119/api/day/64de04bd682cc82a352ad9e5",
           {
             data: {
               date: clickedDate,
               emoji: selectedEmoji,
+            },
+          },
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods":
+                "GET,PUT,POST,DELETE,PATCH,OPTIONS",
             },
           }
         );
