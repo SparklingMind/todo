@@ -35,31 +35,8 @@ function CalendarFunc() {
   };
 
   // 각 날짜별로 이모지 추가
-  // const addEmoji = ({ date }) => {
-  //   const EmojiDateAdded = []; //추가된 이모지 날짜
-  //   for (let i = 0; i < dateList.length; i++) {
-  //     if (dateList[i] === moment(date).format("YYYYMMDD")) {
-  //       EmojiDateAdded.push(
-  //         <div key={dateList[i]} className="savedEmoji">
-  //           {emojiList[i]}
-  //         </div>
-  //       );
-  //     }
-  //   }
-  //   return <div>{EmojiDateAdded}</div>;
-  // };
-
-  //test
   const addEmoji = ({ date }) => {
     const EmojiDateAdded = []; //추가된 이모지 날짜
-    for (let i = 0; i < dateList.length; i++) {
-      for (let j = 0; j < dateList.length; j++) {
-        if (dateList[i] === dateList[j]) {
-          emojiList.splice[i];
-        }
-        break;
-      }
-    }
     for (let i = 0; i < dateList.length; i++) {
       if (dateList[i] === moment(date).format("YYYYMMDD")) {
         EmojiDateAdded.push(
@@ -71,8 +48,6 @@ function CalendarFunc() {
     }
     return <div>{EmojiDateAdded}</div>;
   };
-
-  //test
 
   console.log(dateList, emojiList);
   return (
