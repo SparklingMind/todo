@@ -1,8 +1,13 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function SignUpCompleteModal(props) {
+  const nav = useNavigate()
+  const home = () => {
+    nav()
+  }
   return (
     <Modal
       style={{
@@ -31,7 +36,10 @@ function SignUpCompleteModal(props) {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>확인</Button>
+        <Button onClick={
+
+          props.onHide
+          }>확인</Button>
       </Modal.Footer>
     </Modal>
   );

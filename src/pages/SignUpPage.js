@@ -157,8 +157,8 @@ const [userData, setUserData] = useState({
     }
     axios.post(url, requestData)
       .then((response) => {
-        const requsetId = response.data.id;
-        if (userData.id === requsetId) {
+        const responseMessage = response.data.message;
+        if (responseMessage === "다른 아이디를 사용해주세요.") {
           setDuplicatedModal(true);
           setIdChecked(false)
         } else {
@@ -171,7 +171,6 @@ const [userData, setUserData] = useState({
         console.error("아이디 중복 확인 오류:", error);
       });
   };
-// 버튼클릭 - 서버에 아이디 중복확인 요청 - 데이터 받아와서 출력 - 중복일시 모달창 출력
 
 
   const handleId = (event) => {
@@ -211,8 +210,6 @@ const [userData, setUserData] = useState({
       setEmailChecked(true)
     }
   }
-  
-
 
   const handleData = (field, value) => {
     setUserData((datas) => ({
