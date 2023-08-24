@@ -31,7 +31,7 @@ function Home() {
       {/* 하위 컴포넌트에 함수를 props로 전달 */}
       <CalendarFunc sendDataToParent={handleDataFromCalendarFunc} />
       <TodoComponent></TodoComponent>
-      <DiaryHome></DiaryHome>
+      <DiaryHome clickedDate={clickedDate}></DiaryHome>
     </div>
   );
 }
