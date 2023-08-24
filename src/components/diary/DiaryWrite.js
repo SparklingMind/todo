@@ -34,15 +34,20 @@ function DiaryWrite() {
     //글 내용을 string으로 저장
     console.log(diaryContent);
 
-    async function postUser() {
+    async function writeDiary() {
       try {
         // POST 요청은 body에 실어 보냄
         await axios.post(
-          "http://34.64.151.119/api/post/64dfd3daf1361a8eb6858502",
+          "http://34.64.151.119/api/posts",
           {
             date: "20230821",
             title: diaryTitle,
             content: diaryContent,
+          },
+          {
+            headers: {
+              Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU2OWE2Y2VmYTZmNjdiZjc0MTZhYzAiLCJpYXQiOjE2OTI4MzQ0NTQsImV4cCI6MTcwMDYxMDQ1NH0.IXDlGN3E_OmlKteegULvlDtMsyb_wF59_vJgH6LJuww`,
+            },
           }
         );
         console.log("성공");
@@ -51,7 +56,7 @@ function DiaryWrite() {
       }
     }
 
-    postUser();
+    writeDiary();
 
     //작성 완료한 글로 이동
     navigate("/DiaryView");
