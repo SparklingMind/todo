@@ -2,8 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-
-function SignUpErrorModal(props) {
+function LoginFailModal(props) {
   return (
     <Modal
       style={{
@@ -16,14 +15,14 @@ function SignUpErrorModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          회원가입 오류
+          로그인 오류
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p style={{
             margin:"10px auto"
         }}>
-          잠시 후 다시 시도해 주세요.
+          아이디 또는 비밀번호가 일치하지 않습니다.
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -33,6 +32,6 @@ function SignUpErrorModal(props) {
   );
 }
 
-export default SignUpErrorModal
+export default LoginFailModal
 
 

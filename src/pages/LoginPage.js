@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from "react-bootstrap";
+import LoginFailModal from "../components/LoginFailModal";
 import LoginErrorModal from "../components/LoginErrorModal";
 import axios from "axios";
 
@@ -50,22 +51,32 @@ const LoginPage = () => {
     navigate("/")
 }
  
-const [id, setId] = useState("")
-const [password, setPassword] = useState("")
-const [errorModal, setErrorModal] = useState(false)
+const [id, setId] = useState("");
+const [password, setPassword] = useState("");
+
+const idInput = useRef();
+useEffect(() => {
+    idInput.current.focus()
+}, [])
+
+//모달
+const [failModal, setFailModal] = useState(false);
+const [errorModal, setErrorModal] = useState(false);
 
 const handleLogin = () => {
 
     const url = "http://34.64.151.119/api/auth/login"
     const requestData = {
         id: id,
-        password: password
+        password: "password"
     }
     
     axios.post(url, requestData)
     .then((response) => {
+        if(!response.data.errorMessage)
         setId("")
         setPassword("")
+        setFailModal(false)
         setErrorModal(false)
         console.log("로그인 성공:", response.data)
     })
@@ -83,7 +94,7 @@ const handleLogin = () => {
             </UpperContainer>
             <LowerContainer>
             <FloatingLabel controlId="floatingInput" label="아이디" className="mb-3">
-                <Form.Control type="text" placeholder="" />
+                <Form.Control type="text" placeholder="" ref={idInput} />
             </FloatingLabel>
             <FloatingLabel controlId="floatingPassword" label="비밀번호">
                 <Form.Control type="password" placeholder="" />
@@ -92,6 +103,7 @@ const handleLogin = () => {
             <ButtonContainer>
                 <Button id="loginButton"variant="primary" onClick={handleLogin}>로그인</Button>
             </ButtonContainer>
+            <LoginFailModal show={failModal} onHide={() => setFailModal(false)}/>
             <LoginErrorModal show={errorModal} onHide={() => setErrorModal(false)}/>
         </div>
     )

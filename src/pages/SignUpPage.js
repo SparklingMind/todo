@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { Button } from "react-bootstrap";
@@ -130,7 +130,12 @@ const [userData, setUserData] = useState({
 
   const [id, setId] = useState("")
   const [idChecked, setIdChecked] = useState(false)
-  
+
+  const idInput = useRef();
+  useEffect(() => {
+      idInput.current.focus()
+  }, [])
+
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [passwordChecked, setPasswordChecked] = useState(false)
@@ -259,7 +264,7 @@ const [userData, setUserData] = useState({
                 <Form.Group className="idInput">
                     <Form.Label className="idLabel">아이디</Form.Label>
                     <IdContainer>
-                        <Form.Control id="userIdInput"className="customInput" type="text" placeholder="아이디" onChange={(event) => {
+                        <Form.Control id="userIdInput"className="customInput" type="text" placeholder="아이디" ref={idInput} onChange={(event) => {
                           handleId(event);
                           handleData("id", event.target.value);}}/>
                         <Button id="idCheckButton"variant="primary" onClick={handleIdCheck}>
