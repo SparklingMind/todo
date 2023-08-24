@@ -77,6 +77,8 @@ const UserInfo = () => {
           <ul>
             <li>프로필</li>
             <UnderLine />
+            <li>아이디</li>
+            <UnderLine />
             <li>비밀번호 재설정</li>
             <UnderLine />
             <li style = {{color: "red",}}>계정 삭제하기</li>
